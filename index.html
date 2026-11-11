@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>KEZA — Coding Teaching Agent</title>
+  <meta name="description" content="KEZA is a talking, visual coding & web-design teaching agent. It writes and runs real code, drives a 3D graphics lab, and draws, highlights and drags while it explains. Works with OpenAI/Codex, Anthropic, NVIDIA, Gemini, OpenRouter, Alibaba Cloud and Free-LLM." />
+  <meta property="og:title" content="KEZA — Coding Teaching Agent" />
+  <meta property="og:description" content="A talking, visual AI coding & web-design tutor that shows what it does. Multi-provider: OpenAI, Anthropic, NVIDIA, Gemini, OpenRouter, Alibaba, Free-LLM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4d8d' d='M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./agent.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">KEZA</span>
+      <span class="brand-sub">coding teaching agent</span>
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-actions">
+      <span class="status-hint" id="status-hint" aria-live="polite"></span>
+      <button class="icon-btn" id="new-chat-btn" title="New chat" aria-label="New chat">＋</button>
+      <button class="icon-btn admin-btn" id="admin-btn" title="Admin dashboard" aria-label="Admin dashboard">🛡</button>
+      <button class="icon-btn" id="settings-btn" title="Settings" aria-label="Settings">⚙</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="workspace" aria-label="Teaching workspace">
+      <div class="workspace-tabs">
+        <button class="wtab" id="tab-code">Code Studio</button>
+        <button class="wtab" id="tab-graphics">Graphics Lab</button>
+      </div>
+      <div class="workspace-body">
+        <div class="pane" id="studio-pane"></div>
+        <div class="pane" id="lab-pane"></div>
+      </div>
+    </section>
+
+    <aside class="sidepanel" aria-label="Skills">
+      <div class="sidepanel-title">Try asking</div>
+      <div id="examples" class="examples"></div>
+    </aside>
+
+    <section class="chatcol" aria-label="Conversation">
+      <div class="convo" id="convo"></div>
+      <div class="composer">
+        <div class="composer-bar">
+          <span class="cb-logo" id="composer-logo" aria-hidden="true"></span>
+          <select id="provider-select" class="cb-select" aria-label="LLM provider"></select>
+          <select id="model-select" class="cb-select cb-model" aria-label="Model"></select>
+        </div>
+        <div class="composer-shell">
+          <textarea id="composer-input" rows="1" placeholder="Ask KEZA to teach or build something… (Enter to send)"></textarea>
+          <div class="composer-tools">
+            <button class="icon-btn mic" id="mic-btn" title="Voice input" aria-label="Voice input">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </button>
+            <button class="send-btn" id="send-btn" title="Send">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/agent/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "KEZA — Coding Teaching Agent",
+  "description": "A talking, visual coding & web-design teaching agent with a multi-provider backend proxy, live Code Studio, a 3D Graphics Lab, and an admin dashboard for controlling the AI.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
